@@ -1,0 +1,14 @@
+{
+    "type": "service_account",
+    "project_id": "hairsphere-2026",
+    "private_key_id": "3b11d77767229c5ca0dec44ccec4a52215218d48",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDX8SLYBEEsaK+P\nEeSoH16ot1BE/OKqY9fIZdM6lkLPrAf7C8okhygAtq7hR4D5prECVXDeG2FKYser\nTH+p1oOwjcTRe1fIqlr57RsOX9aA4pn0UaNczwAqjV0YMMRLmfaXki0bG8O/uuot\nYLNgvulQsfueDjn8zIvCeF+XhlreEE4AJl4tdW3rwSpvDgVpdKvy3EDNccsbu3ED\nM7LjHWDC1NVaNDPH9c1KG8jGEOkK2psySw/SWzZC5RgmpmarBh3o3Ai9/FwQEtUb\n4I9V/kiD8lrd1HalxkHlO8ScV1Oe59wNGw4YuSUumELmLbAnZVc/o9tcCB4pZtO+\nu9c75dA3AgMBAAECggEAS9oHh8KC1CMXm9VIsOeH/BKcLwd3ZSu6Fcnytw8l+8Wt\nbfkXsdoJ6qpA5qATxV3QqoWxpksO0y68fUbbRyCzVFaQDpdZYAK6/zRSvytZ8R7n\nvkLY89ZAdDIAw+kJYpb74AT4NB/+FACHlpXznGWjFfXW8Q+FPe/pnc9joJmQnJSP\nZbHVphhijxEQZLgs9xRlhNKi6eJ+gwesSXBPy2dELJljCNb/ixuF8K63WrcYVpc9\neF61k0Krz6/sQpvKqFwocCLZ8hkdS/BsU8FCVM5OsZLA7muJUPjqpj6FNFG6t3sP\nfK9SrmHbmdYIHJ9Jwa7lTRC12TxcszuRnB3+GhTLKQKBgQDvLKBzPDU7748nYsFX\nywM+ojVd+OmIBaD+l6kovYTZJTmx7ipPMO2dvuPnXxjZMy3/6yXRaBmpeXsZTlLh\nME/3wEmQArCXOPq+TX3ECfgvJUTmg2ygUcsRCb1dwaI2jmn9FbLQ7r34hxalCkC4\neCFmTi6wsuQXAer7zJvuk45/WQKBgQDnIhv5aTUcqBE2XbklTmeW/gkqpuDEEUT2\ndsQodMumYc9uXzBCkX5DTX35BHVZxQeiBt9XP1303vJC60C4HW3XEOj3VAZJ/yuG\nWT82iuXQ9E4GEDzWS2pzSLe3r4WLi2MWaR9IwqpeCdUfCIrUi0nvcT5VEcV59iIp\n8N9Yn63qDwKBgDwwwexeMZN01VT3IGsktxtTHRUaKENID10i87pB/6XaHWvu4Qzu\n5k21lYtLvmgi3ieymODbTuH8pYMX1/m9+9IAvUKVurVD7K5puAXW8HOE8JMGbhbm\nnrEZ/2MR8O3D515+0HKOMpbSAFvmeaUy7kzdzhg/3PEBVY6qzm87CTh5AoGBALHI\nsM/Vtv7F4Ad7a/BgMJoZ6R8foX/u8KbLj/K2c/cVASMaoNpzYzWNo7opTcKxJT/i\nHWTU3wZ9fscugWeda2GkJi4oOXYtimMavt7LVB637FQJpWIIPGdUpcvqfMRrgNo6\nHdAvvC/9TCtEvNTkFwjQiGuS8dzwEDNGjeVzXajNAoGAVNbcZ/1oQjCGC4PaZuam\nH4muDmUAToLzRoOguIeSVdrBs9ExI/gV90+ChqAVLy01YvpXZXhsoDcAagM4ieRo\nUjV1RA3IGSo6i8od80vta3LE+F6GGReJCoZZGH4o4fTEV/uGauFywlEv71sDfyts\nsY4qE5BhY6O10PjEfUb+bKA=\n-----END PRIVATE KEY-----\n",
+    "client_email": "firebase-adminsdk-fbsvc@hairsphere-2026.iam.gserviceaccount.com",
+    "client_id": "100534023303096152983",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40hairsphere-2026.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+  }
+  
