@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hairsphere Salon - Owner Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main_owner.css">
+</head>
+<script type="module" src="js/login_owner.js" defer></script>
+<body>
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <i class="fas fa-cut"></i> Hairsphere
+      </div>
+      <div class="mobile-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+    
+    <div class="salon-info">
+      <img src="/api/placeholder/80/80" alt="Salon Logo" class="salon-logo">
+      <div class="salon-details">
+        <h3>Luxe Hair Studio</h3>
+        <p class="salon-status online"><i class="fas fa-circle"></i> Online</p>
+      </div>
+    </div>
+    
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="#dashboard" class="nav-link active" data-section="dashboard">
+          <i class="fas fa-tachometer-alt"></i> Dashboard
+        </a>
+      </li>
+      <li class="nav-item nav-dropdown">
+        <a href="#" class="nav-link" data-section="appointments">
+          <i class="fas fa-calendar-check"></i> Appointments
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="#ongoing" data-subsection="ongoing">Ongoing</a></li>
+          <li><a href="#pending" data-subsection="pending">Pending</a></li>
+          <li><a href="#completed" data-subsection="completed">Completed</a></li>
+          <li><a href="#rejected" data-subsection="rejected">Rejected</a></li>
+        </ul>
+      </li>
+      <li class="nav-item nav-dropdown">
+        <a href="#" class="nav-link" data-section="services">
+          <i class="fas fa-concierge-bell"></i> Services
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="#manage-services" data-subsection="manage-services">Manage Services</a></li>
+          <li><a href="#offers" data-subsection="offers">Special Offers</a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href="#insights" class="nav-link" data-section="insights">
+          <i class="fas fa-chart-line"></i> Insights
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#profile" class="nav-link" data-section="profile">
+          <i class="fas fa-user-circle"></i> Profile
+        </a>
+      </li>
+    </ul>
+    
+    <div class="sidebar-footer">
+      <a href="#" class="logout">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <header class="top-header">
+      <div class="search-container">
+        <input type="text" placeholder="Search...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      
+      <div class="header-right">
+        <div class="notifications">
+          <i class="fas fa-bell"></i>
+          <span class="badge">3</span>
+        </div>
+        <div class="messages">
+          <i class="fas fa-envelope"></i>
+          <span class="badge">5</span>
+        </div>
+        <div class="profile-dropdown">
+          <img src="/api/placeholder/40/40" alt="Owner" class="owner-avatar">
+          <span>sanjay salon</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="content-section active">
+      <div class="section-header">
+        <h2>Dashboard</h2>
+        <p>Welcome back! Here's an overview of your salon's performance.</p>
+      </div>
+      
+      <div class="stats-cards">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <div class="stat-details">
+            <h3>Today's Appointments</h3>
+            <p class="stat-value">8</p>
+            <p class="stat-change positive">+2 from yesterday</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-user-clock"></i>
+          </div>
+          <div class="stat-details">
+            <h3>Pending Requests</h3>
+            <p class="stat-value">5</p>
+            <p class="stat-change negative">+3 from yesterday</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <div class="stat-details">
+            <h3>Today's Revenue</h3>
+            <p class="stat-value">$450</p>
+            <p class="stat-change positive">+$120 from yesterday</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="stat-details">
+            <h3>Average Rating</h3>
+            <p class="stat-value">4.8</p>
+            <p class="stat-change positive">+0.2 from last week</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="charts-container">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3>Revenue Trend</h3>
+            <div class="chart-actions">
+              <select>
+                <option>Last 7 Days</option>
+                <option>Last 30 Days</option>
+                <option>Last 90 Days</option>
+              </select>
+            </div>
+          </div>
+          <div class="chart" id="revenueChart" style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <!-- Chart will be inserted here by JavaScript -->
+            <canvas id="revenueTrendCanvas" width="450" height="300"></canvas>
+            <canvas id="revenuePieChartCanvas" width="250" height="300"></canvas>
+          </div>
+        </div>
+        
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3>Popular Services</h3>
+            <div class="chart-actions">
+              <select>
+                <option>Last 7 Days</option>
+                <option>Last 30 Days</option>
+                <option>Last 90 Days</option>
+              </select>
+            </div>
+          </div>
+          <div class="chart" id="servicesChart">
+            <!-- Popular services images will be inserted here by JavaScript -->
+            <div id="popularServicesContainer" class="popular-services-container"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="upcoming-appointments">
+        <div class="section-subheader">
+          <h3>Upcoming Appointments</h3>
+          <a href="#" class="view-all">View All</a>
+        </div>
+        
+        <div class="appointment-list">
+          <div class="appointment-item">
+            <div class="appointment-time">
+              <h4>09:30 AM</h4>
+              <p>Today</p>
+            </div>
+            <div class="appointment-client">
+              <img src="/api/placeholder/50/50" alt="Client" class="client-avatar">
+              <div class="client-details">
+                <h4>Sarah Johnson</h4>
+                <p>Haircut & Styling</p>
+              </div>
+            </div>
+            <div class="appointment-status pending">
+              <span>Pending</span>
+            </div>
+            <div class="appointment-actions">
+              <button class="btn btn-primary">Accept</button>
+              <!--button class="btn btn-outlined">Reschedule</button-->
+            </div>
+          </div>
+          
+          <div class="appointment-item">
+            <div class="appointment-time">
+              <h4>11:00 AM</h4>
+              <p>Today</p>
+            </div>
+            <div class="appointment-client">
+              <img src="/api/placeholder/50/50" alt="Client" class="client-avatar">
+              <div class="client-details">
+                <h4>Michael Smith</h4>
+                <p>Men's Haircut + Beard Trim</p>
+              </div>
+            </div>
+            <div class="appointment-status confirmed">
+              <span>Confirmed</span>
+            </div>
+            <div class="appointment-actions">
+              <!--button class="btn btn-outlined">Reschedule</button-->
+              <button class="btn btn-danger">Reject</button>
+            </div>
+          </div>
+          
+          <div class="appointment-item">
+            <div class="appointment-time">
+              <h4>02:15 PM</h4>
+              <p>Today</p>
+            </div>
+            <div class="appointment-client">
+              <img src="/api/placeholder/50/50" alt="Client" class="client-avatar">
+              <div class="client-details">
+                <h4>Emma Davis</h4>
+                <p>Hair Coloring</p>
+              </div>
+            </div>
+            <div class="appointment-status confirmed">
+              <span>Confirmed</span>
+            </div>
+            <div class="appointment-actions">
+              <!--button class="btn btn-outlined">Reschedule</button-->
+              <button class="btn btn-danger">Reject</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Appointments Section -->
+    <section id="appointments" class="content-section">
+      <div class="section-header">
+        <h2>Appointments</h2>
+        <div class="section-actions">
+          <select id="appointmentFilter">
+            <option value="ongoing">Ongoing</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </div>
+      </div>
+      
+      <!-- Appointment Subsections -->
+      <div id="ongoing" class="appointment-subsection active">
+        <div class="appointment-table">
+          <div class="table-header">
+            <div class="th">Date & Time</div>
+            <div class="th">Client</div>
+            <div class="th">Service</div>
+            <div class="th">Staff</div>
+            <div class="th">Status</div>
+            <div class="th">Actions</div>
+          </div>
+          
+          <div class="table-row">
+            <div class="td">
+              <strong>Today</strong>
+              <p>10:00 AM</p>
+            </div>
+            <div class="td client-info">
+              <img src="/api/placeholder/40/40" alt="Client">
+              <div>
+                <strong>Lisa Wong</strong>
+                <p>First visit</p>
+              </div>
+            </div>
+            <div class="td">
+              <strong>Hair Styling</strong>
+              <p>1 hour</p>
+            </div>
+            <div class="td">
+              <strong>Maria Rodriguez</strong>
+            </div>
+            <div class="td">
+              <span class="status-badge in-progress">In Progress</span>
+            </div>
+            <div class="td">
+              <div class="row-actions">
+                <button class="btn-icon"><i class="fas fa-check-circle"></i></button>
+                <button class="btn-icon"><i class="fas fa-times-circle"></i></button>
+                <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="table-row">
+            <div class="td">
+              <strong>Today</strong>
+              <p>11:30 AM</p>
+            </div>
+            <div class="td client-info">
+              <img src="/api/placeholder/40/40" alt="Client">
+              <div>
+                <strong>John Miller</strong>
+                <p>Regular client</p>
+              </div>
+            </div>
+            <div class="td">
+              <strong>Men's Haircut</strong>
+              <p>30 mins</p>
+            </div>
+            <div class="td">
+              <strong>David Johnson</strong>
+            </div>
+            <div class="td">
+              <span class="status-badge in-progress">In Progress</span>
+            </div>
+            <div class="td">
+              <div class="row-actions">
+                <button class="btn-icon"><i class="fas fa-check-circle"></i></button>
+                <button class="btn-icon"><i class="fas fa-times-circle"></i></button>
+                <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="pending" class="appointment-subsection">
+        <div class="appointment-table">
+          <div class="table-header">
+            <div class="th">Date & Time</div>
+            <div class="th">Client</div>
+            <div class="th">Service</div>
+            <div class="th">Staff</div>
+            <div class="th">Status</div>
+            <div class="th">Actions</div>
+          </div>
+          
+          <div class="table-row">
+            <div class="td">
+              <strong>Today</strong>
+              <p>02:00 PM</p>
+            </div>
+            <div class="td client-info">
+              <img src="/api/placeholder/40/40" alt="Client">
+              <div>
+                <strong>Yuvraj Mandloi</strong>
+                <p>First visit</p>
+              </div>
+            </div>
+            <div class="td">
+              <strong>Haircut & Styling</strong>
+              <p>1 hour</p>
+            </div>
+            <div class="td">
+              <strong>Not assigned</strong>
+            </div>
+            <div class="td">
+              <span class="status-badge pending">Pending</span>
+            </div>
+            <div class="td">
+              <div class="row-actions">
+                <button class="btn-icon approve"><i class="fas fa-check"></i></button>
+                <button class="btn-icon reject"><i class="fas fa-times"></i></button>
+                <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="table-row">
+            <div class="td">
+              <strong>Tomorrow</strong>
+              <p>10:30 AM</p>
+            </div>
+            <div class="td client-info">
+              <img src="/api/placeholder/40/40" alt="Client">
+              <div>
+                <strong>Robert Chen</strong>
+                <p>Regular client</p>
+              </div>
+            </div>
+            <div class="td">
+              <strong>Hair Coloring</strong>
+              <p>2 hours</p>
+            </div>
+            <div class="td">
+              <strong>Not assigned</strong>
+            </div>
+            <div class="td">
+              <span class="status-badge pending">Pending</span>
+            </div>
+            <div class="td">
+              <div class="row-actions">
+                <button class="btn-icon approve"><i class="fas fa-check"></i></button>
+                <button class="btn-icon reject"><i class="fas fa-times"></i></button>
+                <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="completed" class="appointment-subsection">
+        <div class="appointment-table">
+          <div class="table-header">
+            <div class="th">Date & Time</div>
+            <div class="th">Client</div>
+            <div class="th">Service</div>
+            <div class="th">Staff</div>
+            <div class="th">Status</div>
+            <div class="th">Actions</div>
+          </div>
+          
+          <div class="table-row">
+            <div class="td">
+              <strong>Yesterday</strong>
+              <p>03:00 PM</p>
+            </div>
+            <div class="td client-info">
+              <img src="/api/placeholder/40/40" alt="Client">
+              <div>
+                <strong>Jessica Williams</strong>
+                <p>Regular client</p>
+              </div>
+            </div>
+            <div class="td">
+              <strong>Manicure & Pedicure</strong>
+              <p>1.5 hours</p>
+            </div>
+            <div class="td">
+              <strong>Amy Chen</strong>
+            </div>
+            <div class="td">
+              <span class="status-badge completed">Completed</span>
+            </div>
+            <div class="td">
+              <div class="row-actions">
+                <button class="btn-icon"><i class="fas fa-redo"></i></button>
+                <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="table-row">
+            <div class="td">
+              <strong>Yesterday</strong>
+              <p>04:30 PM</p>
+            </div>
+            <div class="td client-info">
+              <img src="/api/placeholder/40/40" alt="Client">
+              <div>
+                <strong>Michael Brown</strong>
+                <p>First visit</p>
+              </div>
+            </div>
+            <div class="td">
+              <strong>Beard Trim</strong>
+              <p>30 mins</p>
+            </div>
+            <div class="td">
+              <strong>David Johnson</strong>
+            </div>
+            <div class="td">
+              <span class="status-badge completed">Completed</span>
+            </div>
+            <div class="td">
+              <div class="row-actions">
+                <button class="btn-icon"><i class="fas fa-redo"></i></button>
+                <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="rejected" class="appointment-subsection">
+        <div class="appointment-table">
+          <div class="table-header">
+            <div class="th">Date & Time</div>
+            <div class="th">Client</div>
+            <div class="th">Service</div>
+            <div class="th">Staff</div>
+            <div class="th">Status</div>
+            <div class="th">Actions</div>
+          </div>
+          
+          <div class="table-row">
+            <div class="td">
+              <strong>2 days ago</strong>
+              <p>11:00 AM</p>
+            </div>
+            <div class="td client-info">
+              <img src="/api/placeholder/40/40" alt="Client">
+              <div>
+                <strong>Emily Taylor</strong>
+                <p>New client</p>
+              </div>
+            </div>
+            <div class="td">
+              <strong>Full Facial</strong>
+              <p>1 hour</p>
+            </div>
+            <div class="td">
+              <strong>Not assigned</strong>
+            </div>
+            <div class="td">
+              <span class="status-badge rejected">Rejected</span>
+            </div>
+            <div class="td">
+              <div class="row-actions">
+                <button class="btn-icon"><i class="fas fa-redo"></i></button>
+                <button class="btn-icon"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="table-row">
+            <div class="td">
+              <strong>3 days ago</strong>
+              <p>02:00 PM</p>
+            </div>
+            <div class="td client-info">
+              <img src="/api/placeholder/40/40" alt="Client">
+              <div>
+                <strong>Daniel Lee</strong>
+                <p>New client</p>
+              </div>
+            </div>
+            <div class="td">
+              <strong>Hair Coloring</strong>
+              <p>2 hours</p>
+            </div>
+            <div class="td">
+              <strong>Not assigned</strong>
+            </div>
+            <div class="td">
+              <span class="status-badge rejected">Rejected</span>
+            </div>
+            <div class="td">
+              <div class="row-actions">
+                <button class="btn-icon"><i class="fas fa-redo"></i></button>
+                <button class="btn-icon"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="content-section">
+      <div class="section-header">
+        <h2>Services</h2>
+        <div class="section-actions">
+          <select id="serviceFilter">
+            <option value="manage-services">Manage Services</option>
+            <option value="offers">Special Offers</option>
+          </select>
+          <button class="btn btn-primary"><i class="fas fa-plus"></i> Add New</button>
+        </div>
+      </div>
+      
+      <!-- Services Subsections -->
+      <div id="manage-services" class="service-subsection active">
+        <div class="service-cards">
+          <div class="service-card">
+            <div class="service-img-container">
+              <img src="/api/placeholder/300/200" alt="Haircut" class="service-img">
+              <div class="service-actions">
+                <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon delete"><i class="fas fa-trash-alt"></i></button>
+              </div>
+            </div>
+            <div class="service-info">
+              <h3>Women's Haircut & Style</h3>
+              <p>Professional haircut and styling tailored to your preferences. Includes consultation, wash, cut, and blow dry.</p>
+              <div class="service-price">$65</div>
+              <div class="service-duration"><i class="far fa-clock"></i> 60 mins</div>
+            </div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-img-container">
+              <img src="/api/placeholder/300/200" alt="Hair Coloring" class="service-img">
+              <div class="service-actions">
+                <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon delete"><i class="fas fa-trash-alt"></i></button>
+              </div>
+            </div>
+            <div class="service-info">
+              <h3>Full Hair Coloring</h3>
+              <p>Complete hair coloring service with premium products. Includes consultation, application, processing time, and styling.</p>
+              <div class="service-price">$120</div>
+              <div class="service-duration"><i class="far fa-clock"></i> 120 mins</div>
+            </div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-img-container">
+              <img src="/api/placeholder/300/200" alt="Men's Haircut" class="service-img">
+              <div class="service-actions">
+                <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon delete"><i class="fas fa-trash-alt"></i></button>
+              </div>
+            </div>
+            <div class="service-info">
+              <h3>Men's Haircut</h3>
+              <p>Classic men's haircut service. Includes consultation, wash, cut, and styling with premium products.</p>
+              <div class="service-price">$45</div>
+              <div class="service-duration"><i class="far fa-clock"></i> 30 mins</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="offers" class="service-subsection">
+        <div class="service-cards">
+          <div class="service-card offer-card">
+            <div class="service-img-container">
+              <img src="/api/placeholder/300/200" alt="Weekend Special" class="service-img">
+              <div class="offer-badge">25% OFF</div>
+              <div class="service-actions">
+                <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon delete"><i class="fas fa-trash-alt"></i></button>
+              </div>
+            </div>
+            <div class="service-info">
+              <h3>Weekend Special</h3>
+              <p>Book a full hair treatment 5 days in advance and get 25% off the regular price.</p>
+              <div class="service-price">$45 <span class="original-price">$60</span></div>
+              <div class="offer-validity">Valid until: May 15, 2025</div>
+            </div>
+          </div>
+          
+          <div class="service-card offer-card">
+            <div class="service-img-container">
+              <img src="/api/placeholder/300/200" alt="Manicure Pedicure" class="service-img">
+              <div class="offer-badge">15% OFF</div>
+              <div class="service-actions">
+                <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon delete"><i class="fas fa-trash-alt"></i></button>
+              </div>
+            </div>
+            <div class="service-info">
+              <h3>Manicure + Pedicure</h3>
+              <p>Book 3 days in advance and save 15% on our premium package.</p>
+              <div class="service-price">$55 <span class="original-price">$65</span></div>
+              <div class="offer-validity">Valid until: June 1, 2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section id="insights" class="content-section">
+      <div class="section-header">
+        <h2>Insights</h2>
+        <div class="section-actions">
+          <select id="insightPeriod">
+            <option value="week">This Week</option>
+            <option value="month">This Month</option>
+            <option value="quarter">This Quarter</option>
+            <option value="year">This Year</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="insight-tabs">
+        <button class="insight-tab active" data-tab="overview">Overview</button>
+        <button class="insight-tab" data-tab="reviews">Reviews & Ratings</button>
+        <button class="insight-tab" data-tab="customers">Customer Analytics</button>
+      </div>
+      
+      <div id="overview" class="insight-content active">
+        <div class="insight-cards">
+          <div class="insight-card">
+            <div class="insight-value">256</div>
+            <div class="insight-label">Total Appointments</div>
+            <div class="insight-change positive">+12% from last month</div>
+          </div>
+          
+          <div class="insight-card">
+            <div class="insight-value">$5,280</div>
+            <div class="insight-label">Total Revenue</div>
+            <div class="insight-change positive">+8% from last month</div>
+          </div>
+          
+          <div class="insight-card">
+            <div class="insight-value">4.8</div>
+            <div class="insight-label">Customer Satisfaction</div>
+            <div class="insight-change positive">+0.2 from last month</div>
+          </div>
+          
+          <div class="insight-card">
+            <div class="insight-value">32</div>
+            <div class="insight-label">New Customers</div>
+            <div class="insight-change positive">+15% from last month</div>
+          </div>
+        </div>
+        
+        <div class="chart-container">
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Revenue by Service Category</h3>
+            </div>
+            <div class="chart" id="revenueByCategoryChart">
+              <img src="/api/placeholder/700/300" alt="Revenue by Category Chart" class="chart-placeholder">
+            </div>
+          </div>
+        </div>
+        
+        <div class="chart-rows">
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Peak Hours</h3>
+            </div>
+            <div class="chart" id="peakHoursChart">
+              <img src="/api/placeholder/400/250" alt="Peak Hours Chart" class="chart-placeholder">
+            </div>
+          </div>
+          
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3>Customer Demographics</h3>
+            </div>
+            <div class="chart" id="demographicsChart">
+              <img src="/api/placeholder/400/250" alt="Demographics Chart" class="chart-placeholder">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="reviews" class="insight-content">
+        <div class="review-summary">
+          <div class="rating-overview">
+            <div class="average-rating">
+              <div class="rating-value">4.8</div>
+               <div class="rating-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div >
+            </div>
+            <div class="review-list">
+              <div class="review-item">
+                <div class="review-header">
+                  <strong>Sarah Johnson</strong>
+                  <span class="review-date">April 20, 2025</span>
+                </div>
+                <div class="review-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <p>Excellent service and friendly staff. Highly recommend!</p>
+                <button class="btn btn-link" onclick="replyToReview(1)">Reply</button>
+                <form id="reply-form-1" class="reply-form">
+                  <textarea placeholder="Write a reply..."></textarea>
+                  <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+              </div>
+              <div class="review-item">
+                <div class="review-header">
+                  <strong>Michael Smith</strong>
+                  <span class="review-date">April 18, 2025</span>
+                </div>
+                <div class="review-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <i class="fas fa-star-o"></i>
+                </div>
+                <p>Good experience overall, but the wait time was a bit long.</p>
+                <button class="btn btn-link" onclick="replyToReview(2)">Reply</button>
+                <form id="reply-form-2" class="reply-form">
+                  <textarea placeholder="Write a reply..."></textarea>
+                  <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          
+          <div id="customers" class="insight-content">
+            <div class="section-header">
+              <h3>Customer Analytics</h3>
+              <p>Insights into your customer base and behavior.</p>
+            </div>
+            <div class="analytics-cards">
+              <div class="analytics-card">
+                <div class="analytics-value">1,200</div>
+                <div class="analytics-label">Total Customers</div>
+                <div class="analytics-change positive">+10% from last quarter</div>
+              </div>
+              <div class="analytics-card">
+                <div class="analytics-value">350</div>
+                <div class="analytics-label">New Customers</div>
+                <div class="analytics-change positive">+15% from last quarter</div>
+              </div>
+              <div class="analytics-card">
+                <div class="analytics-value">85%</div>
+                <div class="analytics-label">Customer Retention</div>
+                <div class="analytics-change positive">+5% from last quarter</div>
+              </div>
+            </div>
+            <div class="chart-container">
+              <div class="chart-card">
+                <div class="chart-header">
+                  <h3>Customer Growth</h3>
+                </div>
+                <div class="chart" id="customerGrowthChart">
+                  <img src="/api/placeholder/700/300" alt="Customer Growth Chart" class="chart-placeholder">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script type="module" src="js/login_owner.js" defer></script>
+    <script type="module" src="js/main_owner.js" defer></script>
+  </body>
+</html>
+              

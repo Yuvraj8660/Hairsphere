@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Salon</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    fieldset {
+      margin-bottom: 20px;
+    }
+    .day-block {
+      margin: 10px 0;
+      transition: opacity 0.3s ease;
+    }
+    .faded {
+      opacity: 0.5;
+    }
+    .service {
+      margin-bottom: 10px;
+    }
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Add Salon</h2>
+
+  <form id="salonForm">
+    <fieldset>
+      <legend>Owner Info</legend>
+      <label>Name: <input type="text" id="ownerName" required /></label><br />
+      <label>Phone: <input type="text" id="ownerPhone" readonly /></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Salon Details</legend>
+      <label>Salon Name: <input type="text" id="salonName" required /></label><br />
+      <label>Address: <input type="text" id="address" required /></label><br />
+
+      <h4>Services</h4>
+      <div id="servicesList"></div>
+      <button type="button" onclick="addService()">Add Service</button>
+
+      <h4>Working Days</h4>
+      <div id="workingDaysList"></div>
+    </fieldset>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script src="demo.js"></script>
+</body>
+</html>

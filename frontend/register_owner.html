@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salon Registration</title>
+  <link rel="stylesheet" href="css/register_owner.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Salon Registration Form</h1>
+
+    <!-- Step 1: Owner Registration -->
+    <div id="ownerDetails" class="form-section">
+      <h2>Owner Details</h2>
+      <form id="ownerForm">
+        <label for="ownerName">Name:</label>
+        <input type="text" id="ownerName" name="ownerName" required>
+
+        <label for="ownerNumber">Phone Number:</label>
+        <input type="text" id="ownerNumber" name="ownerNumber" required>
+
+        <button type="button" id="nextToSalon" class="btn">Next: Salon Details</button>
+      </form>
+    </div>
+
+    <!-- Step 2: Salon Registration -->
+    <div id="salonDetails" class="form-section" style="display:none;">
+      <h2>Salon Details</h2>
+      <form id="salonForm">
+        <label for="salonName">Salon Name:</label>
+        <input type="text" id="salonName" name="salonName" required>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="workingDays">Working Days:</label>
+        <div id="workingDays">
+          <label><input type="checkbox" name="workingDay" value="Monday"> Monday</label>
+          <label><input type="checkbox" name="workingDay" value="Tuesday"> Tuesday</label>
+          <label><input type="checkbox" name="workingDay" value="Wednesday"> Wednesday</label>
+          <label><input type="checkbox" name="workingDay" value="Thursday"> Thursday</label>
+          <label><input type="checkbox" name="workingDay" value="Friday"> Friday</label>
+          <label><input type="checkbox" name="workingDay" value="Saturday"> Saturday</label>
+          <label><input type="checkbox" name="workingDay" value="Sunday"> Sunday</label>
+        </div>
+
+        <label for="timing">Timing:</label>
+        <input type="text" id="timing" name="timing" placeholder="e.g. 9 AM - 6 PM" required>
+
+        <button type="button" id="nextToService" class="btn">Next: Add Services</button>
+      </form>
+    </div>
+
+    <!-- Step 3: Add Services -->
+    <div id="serviceDetails" class="form-section" style="display:none;">
+      <h2>Add Service</h2>
+      <form id="serviceForm">
+        <div id="servicesContainer">
+          <div class="service-item">
+            <label for="serviceName">Service Name:</label>
+            <input type="text" name="serviceName" class="serviceName" required>
+
+            <label for="price">Price:</label>
+            <input type="number" name="price" class="price" required>
+
+            <label for="time">Service Time:</label>
+            <input type="text" name="time" class="time" required>
+          </div>
+        </div>
+
+        <button type="button" id="addService" class="btn">Add More Services</button>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+
+  <script src="js/register_owner.js"></script>
+</body>
+</html>

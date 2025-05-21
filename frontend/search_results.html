@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Available Salons - Hairsphere</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/search_result.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">
+          <i class="fas fa-cut"></i> Hairsphere
+        </a>
+        <ul class="nav-links">
+          <li><a href="main_user.html">Home</a></li>
+          <li><a href="#" class="active">Nearby Salons</a></li>
+          <li><a href="cust_appointments.html">My Appointments</a></li>
+        </ul>
+        <div class="profile-icon">
+          <i class="fas fa-user"></i>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Title -->
+  <section class="page-title">
+    <div class="container">
+      <h1>Available Salons</h1>
+      <p>Find and book your perfect salon experience</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Search and Filter Section -->
+    <section class="search-filter-section animate-fade">
+      <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search for salons, services or stylists...">
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+      </div>
+      
+      <div class="filter-sort-container">
+        <div class="filter-group">
+          <button class="filter-btn active" data-filter="all">All Salons</button>
+          <button class="filter-btn" data-filter="nearby">Nearby</button>
+          <button class="filter-btn" data-filter="top-rated">Top Rated</button>
+          <button class="filter-btn" data-filter="offers">Special Offers</button>
+          <button class="filter-btn" data-filter="available-today">Available Today</button>
+        </div>
+        
+        <div class="sort-group">
+          <span class="sort-label">Sort by:</span>
+          <select class="sort-dropdown" id="sortOptions">
+            <option value="relevance">Relevance</option>
+            <option value="rating-high">Rating (Highest)</option>
+            <option value="rating-low">Rating (Lowest)</option>
+            <option value="price-low">Price (Low to High)</option>
+            <option value="price-high">Price (High to Low)</option>
+            <option value="distance">Distance</option>
+          </select>
+        </div>
+      </div>
+      
+      <button class="toggle-filters" id="toggleFilters">
+        <i class="fas fa-sliders-h"></i> Advanced Filters
+      </button>
+      
+      <div class="advanced-filters" id="advancedFilters">
+        <div class="filter-row">
+          <div class="filter-item">
+            <label class="filter-label">Service Type</label>
+            <select class="filter-select">
+              <option value="">All Services</option>
+              <option value="haircut">Haircuts</option>
+              <option value="coloring">Hair Coloring</option>
+              <option value="styling">Hair Styling</option>
+              <option value="spa">Spa & Massage</option>
+              <option value="nails">Nail Services</option>
+              <option value="facial">Facial Treatments</option>
+              <option value="makeup">Makeup</option>
+            </select>
+          </div>
+          
+          <div class="filter-item">
+            <label class="filter-label">Gender</label>
+            <select class="filter-select">
+              <option value="">All</option>
+              <option value="men">Men</option>
+              <option value="women">Women</option>
+              <option value="unisex">Unisex</option>
+              <option value="kids">Kids</option>
+            </select>
+          </div>
+          
+          <div class="filter-item">
+            <label class="filter-label">Price Range</label>
+            <select class="filter-select">
+              <option value="">Any Price</option>
+              <option value="budget">Budget ($)</option>
+              <option value="moderate">Moderate ($$)</option>
+              <option value="premium">Premium ($$$)</option>
+              <option value="luxury">Luxury ($$$$)</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="filter-row">
+          <div class="filter-item">
+            <label class="filter-label">Distance</label>
+            <select class="filter-select">
+              <option value="1">Within 1 mile</option>
+              <option value="3">Within 3 miles</option>
+              <option value="5" selected>Within 5 miles</option>
+              <option value="10">Within 10 miles</option>
+              <option value="20">Within 20 miles</option>
+            </select>
+          </div>
+          
+          <div class="filter-item">
+            <label class="filter-label">Availability</label>
+            <select class="filter-select">
+              <option value="">Any Time</option>
+              <option value="today">Today</option>
+              <option value="tomorrow">Tomorrow</option>
+              <option value="this-week">This Week</option>
+              <option value="weekend">Weekend</option>
+            </select>
+          </div>
+          
+          <div class="filter-item">
+            <label class="filter-label">Rating</label>
+            <select class="filter-select">
+              <option value="">Any Rating</option>
+              <option value="4">4+ Stars</option>
+              <option value="3">3+ Stars</option>
+              <option value="2">2+ Stars</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="filter-row">
+          <div class="filter-item">
+            <label class="filter-label">Features</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="parking">
+                <label for="parking">Free Parking</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="wifi">
+                <label for="wifi">Free WiFi</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="offers">
+                <label for="offers">Special Offers</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="wheelchair">
+                <label for="wheelchair">Wheelchair Access</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="filter-actions">
+          <button class="btn" id="resetFilters" style="padding: 8px 16px; border: 1px solid var(--light-gray); background-color: white; color: var(--dark); border-radius: 5px;">Reset Filters</button>
+          <button class="btn" id="applyFilters" style="padding: 8px 16px; background-color: var(--primary); color: white; border: none; border-radius: 5px;">Apply Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- View Toggle Buttons -->
+    <div class="results-info animate-fade">
+      <span id="resultsCount">Showing 24 salons near you</span>
+      
+      <div class="view-toggle">
+        <button class="view-btn active" id="gridViewBtn" title="Grid View">
+          <i class="fas fa-th"></i>
+        </button>
+        <button class="view-btn" id="listViewBtn" title="List View">
+          <i class="fas fa-list"></i>
+        </button>
+        <button class="view-btn" id="mapViewBtn" title="Map View">
+          <i class="fas fa-map-marked-alt"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Map View -->
+    <div class="map-view" id="mapView">
+      <div id="map"></div>
+    </div>
+     
+    <!-- Salon Cards Grid View -->
+    <section class="salon-container animate-fade" id="salonGrid">
+      <div class="salon-grid" id="salonGridContainer">
+        <!-- Generated salon cards will go here -->
+      </div>
+    </section>
+
+    <!-- Salon Cards List View -->
+    <section class="salon-container salon-list animate-fade" id="salonList">
+      <div id="salonListContainer">
+        <!-- Generated salon list cards will go here -->
+      </div>
+    </section>
+
+    <!-- Pagination -->
+    <div class="pagination animate-fade">
+      <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">4</button>
+      <button class="page-btn">5</button>
+      <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Hairsphere</h3>
+          <p>Connecting you with the best salon services near you. Book appointments easily and discover great deals.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Nearby Salons</a></li>
+            <li><a href="cust_appointments.html">My Appointments</a></li>
+            <li><a href="#">Profile</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Haircuts & Styling</a></li>
+            <li><a href="#">Hair Coloring</a></li>
+            <li><a href="#">Nail Services</a></li>
+            <li><a href="#">Spa & Wellness</a></li>
+            <li><a href="#">Makeup</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:info@hairsphere.com">info@hairsphere.com</a></li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+123456789">+1 (234) 567-890</a></li>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Salon Street, Beauty City</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 Hairsphere. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY5liEFd3PDux3qxgF7jNiF-pP4vBFuKA&callback=initMap&libraries=places" async defer></script>
+  <script>
+   // DOM Elements
+const searchBar = document.getElementById('searchBar');
+const toggleFiltersBtn = document.getElementById('toggleFilters');
+const advancedFilters = document.getElementById('advancedFilters');
+const filterButtons = document.querySelectorAll('.filter-btn');
+const sortDropdown = document.getElementById('sortOptions');
+const resetFiltersBtn = document.getElementById('resetFilters');
+const applyFiltersBtn = document.getElementById('applyFilters');
+const resultsCount = document.getElementById('resultsCount');
+const gridViewBtn = document.getElementById('gridViewBtn');
+const listViewBtn = document.getElementById('listViewBtn');
+const mapViewBtn = document.getElementById('mapViewBtn');
+const salonGrid = document.getElementById('salonGrid');
+const salonList = document.getElementById('salonList');
+const mapView = document.getElementById('mapView');
+const salonGridContainer = document.getElementById('salonGridContainer');
+const salonListContainer = document.getElementById('salonListContainer');
+
+// Sample salon data
+const salons = [
+  {
+    id: 1,
+    name: "Luxe Hair Studio",
+    address: "05 Sector B,indore, Madhya Pradesh",
+    distance: "0.8 miles",
+    rating: 4.5,
+    reviewCount: 120,
+    price: "$$",
+    services: ["Haircut", "Coloring", "Styling"],
+    image: "https://t4.ftcdn.net/jpg/01/81/61/29/360_F_181612908_uiOH8a4qWiNGuGS2Pg5dgwUIKJZ0C02w.jpg",
+    lat: 22.7552,
+    lng: 75.8968,
+    features: ["parking", "wifi"],
+    badges: ["Popular"],
+    availableToday: true
+  },
+  {
+    id: 2,
+    name: "Urban Cuts",
+    address: "15 Sector B,indore, Madhya Pradesh",
+    distance: "1.2 miles",
+    rating: 4.0,
+    reviewCount: 85,
+    price: "$",
+    services: ["Haircut", "Beard Trim"],
+    image: "https://media.istockphoto.com/id/1856117770/photo/modern-beauty-salon.jpg?s=612x612&w=0&k=20&c=dVZtsePk2pgbqDXwVkMm-yIw5imnZ2rnkAruR7zf8EA=",
+    lat: 22.7562,
+    lng: 75.8978,
+    features: ["wifi"],
+    badges: ["Deal"],
+    availableToday: true
+  },
+  {
+    id: 3,
+    name: "Style & Shine",
+    address: "25 Sector B,indore, Madhya Pradesh",
+    distance: "0.5 miles",
+    rating: 5.0,
+    reviewCount: 210,
+    price: "$$$",
+    services: ["Haircut", "Coloring", "Styling", "Spa"],
+    image: "https://s3-media0.fl.yelpcdn.com/bphoto/vao3Tjb7-Gdb2QN_ZsU5YA/348s.jpg",
+    lat: 22.7572,
+    lng: 75.8988,
+    features: ["parking", "wifi", "wheelchair"],
+    badges: ["Top Rated"],
+    availableToday: false
+  },
+  {
+    id: 4,
+    name: "Classic Barber Shop",
+    address: "35 Sector B,indore, Madhya Pradesh",
+    distance: "1.8 miles",
+    rating: 4.2,
+    reviewCount: 67,
+    price: "$$",
+    services: ["Haircut", "Shave", "Beard Trim"],
+    image: "/api/placeholder/350/180",
+    lat: 22.7652,
+    lng: 75.8968,
+    features: ["parking"],
+    badges: [],
+    availableToday: true
+  },
+  {
+    id: 5,
+    name: "Glow & Beauty",
+    address: "45 Sector B,indore, Madhya Pradesh",
+    distance: "2.3 miles",
+    rating: 4.7,
+    reviewCount: 156,
+    price: "$$$",
+    services: ["Facial", "Makeup", "Nails", "Spa"],
+    image: "/api/placeholder/350/180",
+    lat: 22.7552,
+    lng: 75.8668,
+    features: ["parking", "wifi", "wheelchair"],
+    badges: ["Offer"],
+    availableToday: false
+  },
+  {
+    id: 6,
+    name: "The Hair Loft",
+    address: "55 Sector B,indore, Madhya Pradesh",
+    distance: "0.7 miles",
+    rating: 3.8,
+    reviewCount: 42,
+    price: "$$",
+    services: ["Haircut", "Coloring", "Extensions"],
+    image: "/api/placeholder/350/180",
+    lat: 22.7452,
+    lng: 75.8968,
+    features: ["wifi"],
+    badges: [],
+    availableToday: true
+  },
+  {
+    id: 7,
+    name: "Elegant Nails & Spa",
+    address: "65 Sector B,indore, Madhya Pradesh",
+    distance: "1.5 miles",
+    rating: 4.3,
+    reviewCount: 89,
+    price: "$$",
+    services: ["Nails", "Spa", "Massage"],
+    image: "/api/placeholder/350/180",
+    lat: 22.7552,
+    lng: 75.8948,
+    features: ["parking", "wifi"],
+    badges: ["Deal"],
+    availableToday: true
+  },
+  {
+    id: 8,
+    name: "Modern Cuts",
+    address: "75 Sector B,indore, Madhya Pradesh",
+    distance: "1.1 miles",
+    rating: 4.6,
+    reviewCount: 132,
+    price: "$$$",
+    services: ["Haircut", "Styling", "Coloring"],
+    image: "/api/placeholder/350/180",
+    lat: 22.7532,
+    lng: 75.8968,
+    features: ["parking", "wifi", "wheelchair"],
+    badges: ["Popular"],
+    availableToday: false
+  },
+  {
+    id: 9,
+    name: "Beauty Bar",
+    address: "85 Sector B,indore, Madhya Pradesh",
+    distance: "2.5 miles",
+    rating: 4.1,
+    reviewCount: 76,
+    price: "$$",
+    services: ["Makeup", "Facial", "Waxing"],
+    image: "/api/placeholder/350/180",
+    lat: 22.7552,
+    lng: 75.8938,
+    features: ["wifi"],
+    badges: ["Offer"],
+    availableToday: true
+  },
+  {
+    id: 10,
+    name: "Prestige Hair Studio",
+    address: "105 Sector B,indore, Madhya Pradesh",
+    distance: "0.9 miles",
+    rating: 4.8,
+    reviewCount: 184,
+    price: "$$$$",
+    services: ["Haircut", "Coloring", "Styling", "Extensions"],
+    image: "/api/placeholder/350/180",
+    lat: 22.7512,
+    lng: 75.8968,
+    features: ["parking", "wifi", "wheelchair"],
+    badges: ["Top Rated"],
+    availableToday: true
+  },
+  {
+    id: 11,
+    name: "Men's Grooming Club",
+    address: "95 Sector B,indore, Madhya Pradesh",
+    distance: "3.2 miles",
+    rating: 4.4,
+    reviewCount: 98,
+    price: "$$$",
+    services: ["Haircut", "Shave", "Beard Trim", "Facial"],
+    image: "/api/placeholder/350/180",
+    lat: 22.7552,
+    lng: 75.8918,
+    features: ["parking", "wifi"],
+    badges: [],
+    availableToday: false
+  },
+  {
+    id: 12,
+    name: "Salon Bliss",
+    address: "125 Sector B,indore, Madhya Pradesh",
+    distance: "1.7 miles",
+    rating: 4.2,
+    reviewCount: 63,
+    price: "$$",
+    services: ["Haircut", "Coloring", "Styling"],
+    image: "/api/placeholder/350/180",
+    lat: 22.7502,
+    lng: 75.8968,
+    features: ["wifi"],
+    badges: ["Deal"],
+    availableToday: true
+  }
+];
+
+// Initialize the page
+function initPage() {
+  // Display salons
+  displaySalons(salons);
+  
+  // Initialize the map
+  initMap();
+  
+  // Update results count
+  updateResultsCount(salons.length);
+  
+  // Initialize event listeners
+  initEventListeners();
+}
+
+// Initialize event listeners
+function initEventListeners() {
+  // Toggle advanced filters
+  toggleFiltersBtn.addEventListener('click', () => {
+    advancedFilters.classList.toggle('active');
+    const icon = toggleFiltersBtn.querySelector('i');
+    if (advancedFilters.classList.contains('active')) {
+      icon.classList.remove('fa-sliders-h');
+      icon.classList.add('fa-times');
+      toggleFiltersBtn.innerHTML = `<i class="fas fa-times"></i> Close Filters`;
+    } else {
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-sliders-h');
+      toggleFiltersBtn.innerHTML = `<i class="fas fa-sliders-h"></i> Advanced Filters`;
+    }
+  });
+  
+  // Filter buttons
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      
+      // Add active class to clicked button
+      button.classList.add('active');
+      
+      // Apply filter
+      const filter = button.dataset.filter;
+      applySalonFilter(filter);
+    });
+  });
+  
+  // Sort dropdown
+  sortDropdown.addEventListener('change', () => {
+    const sortBy = sortDropdown.value;
+    sortSalons(sortBy);
+  });
+  
+  // Reset filters
+  resetFiltersBtn.addEventListener('click', resetFilters);
+  
+  // Apply filters
+  applyFiltersBtn.addEventListener('click', applyAdvancedFilters);
+  
+  // View toggle buttons
+  gridViewBtn.addEventListener('click', () => {
+    setActiveView('grid');
+  });
+  
+  listViewBtn.addEventListener('click', () => {
+    setActiveView('list');
+  });
+  
+  mapViewBtn.addEventListener('click', () => {
+    setActiveView('map');
+  });
+  
+  // Search functionality
+  searchBar.addEventListener('input', () => {
+    const searchTerm = searchBar.value.toLowerCase();
+    const filteredSalons = salons.filter(salon => {
+      return (
+        salon.name.toLowerCase().includes(searchTerm) ||
+        salon.address.toLowerCase().includes(searchTerm) ||
+        salon.services.some(service => service.toLowerCase().includes(searchTerm))
+      );
+    });
+    
+    displaySalons(filteredSalons);
+    updateResultsCount(filteredSalons.length);
+    updateMapMarkers(filteredSalons);
+  });
+}
+
+// Display salons in grid and list views
+function displaySalons(filteredSalons) {
+  // Clear existing salon cards
+  salonGridContainer.innerHTML = '';
+  salonListContainer.innerHTML = '';
+  
+  // Create salon cards for grid view
+  filteredSalons.forEach(salon => {
+    // Create grid view card
+    const gridCard = createSalonCard(salon, 'grid');
+    salonGridContainer.appendChild(gridCard);
+    
+    // Create list view card
+    const listCard = createSalonCard(salon, 'list');
+    salonListContainer.appendChild(listCard);
+  });
+}
+
+// Create a salon card (for both grid and list views)
+function createSalonCard(salon, viewType) {
+  const card = document.createElement('div');
+  card.className = 'salon-card';
+  card.dataset.id = salon.id;
+  
+  const imageContainer = document.createElement('div');
+  imageContainer.style.position = 'relative';
+  
+  const img = document.createElement('img');
+  img.className = 'salon-img';
+  img.src = salon.image;
+  img.alt = salon.name;
+  imageContainer.appendChild(img);
+  
+  // Add badge if available
+  if (salon.badges && salon.badges.length > 0) {
+    const badge = document.createElement('div');
+    badge.className = 'salon-badge';
+    badge.textContent = salon.badges[0];
+    imageContainer.appendChild(badge);
+  }
+  
+  card.appendChild(imageContainer);
+  
+  const infoContainer = document.createElement('div');
+  infoContainer.className = 'salon-info';
+  
+  const name = document.createElement('h3');
+  name.textContent = salon.name;
+  infoContainer.appendChild(name);
+  
+  const address = document.createElement('p');
+  address.textContent = salon.address;
+  infoContainer.appendChild(address);
+  
+  const metaContainer = document.createElement('div');
+  metaContainer.className = 'salon-meta';
+  
+  const rating = document.createElement('div');
+  rating.className = 'rating';
+  rating.innerHTML = `<i class="fas fa-star"></i> ${salon.rating} (${salon.reviewCount})`;
+  metaContainer.appendChild(rating);
+  
+  const price = document.createElement('div');
+  price.className = 'salon-price';
+  price.textContent = salon.price;
+  metaContainer.appendChild(price);
+  
+  infoContainer.appendChild(metaContainer);
+  
+  const servicesContainer = document.createElement('div');
+  servicesContainer.className = 'salon-services';
+  
+  salon.services.forEach(service => {
+    const serviceTag = document.createElement('span');
+    serviceTag.className = 'service-tag';
+    serviceTag.textContent = service;
+    servicesContainer.appendChild(serviceTag);
+  });
+  
+  infoContainer.appendChild(servicesContainer);
+  
+  const footer = document.createElement('div');
+  footer.className = 'salon-footer';
+  
+  const actionsContainer = document.createElement('div');
+  actionsContainer.className = 'salon-actions';
+  
+  const bookBtn = document.createElement('button');
+  bookBtn.className = 'btn';
+  bookBtn.style.padding = '8px 16px';
+  bookBtn.style.backgroundColor = 'var(--primary)';
+  bookBtn.style.color = 'white';
+  bookBtn.style.border = 'none';
+  bookBtn.style.borderRadius = '5px';
+  bookBtn.textContent = 'Book Now';
+  bookBtn.addEventListener('click', () => bookSalon(salon.id));
+  
+  const favoriteBtn = document.createElement('button');
+  favoriteBtn.className = 'action-btn';
+  favoriteBtn.innerHTML = '<i class="far fa-heart"></i>';
+  favoriteBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleFavorite(favoriteBtn, salon.id);
+  });
+  
+  const infoBtn = document.createElement('button');
+  infoBtn.className = 'action-btn';
+  infoBtn.innerHTML = '<i class="fas fa-info-circle"></i>';
+  infoBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showSalonDetails(salon.id);
+  });
+  
+  actionsContainer.appendChild(bookBtn);
+  actionsContainer.appendChild(favoriteBtn);
+  actionsContainer.appendChild(infoBtn);
+  
+  const distance = document.createElement('div');
+  distance.className = 'salon-distance';
+  distance.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${salon.distance}`;
+  
+  footer.appendChild(actionsContainer);
+  footer.appendChild(distance);
+  
+  infoContainer.appendChild(footer);
+  card.appendChild(infoContainer);
+  
+  // Add click event to the whole card
+  card.addEventListener('click', () => showSalonDetails(salon.id));
+  
+  return card;
+}
+
+// Update the results count display
+function updateResultsCount(count) {
+  resultsCount.textContent = `Showing ${count} salons near you`;
+}
+
+// Apply filter based on filter button clicked
+function applySalonFilter(filter) {
+  let filteredSalons = [];
+  
+  switch (filter) {
+    case 'all':
+      filteredSalons = salons;
+      break;
+    case 'nearby':
+      filteredSalons = salons.filter(salon => parseFloat(salon.distance) <= 1);
+      break;
+    case 'top-rated':
+      filteredSalons = salons.filter(salon => salon.rating >= 4.5);
+      break;
+    case 'offers':
+      filteredSalons = salons.filter(salon => salon.badges && salon.badges.includes('Deal') || salon.badges.includes('Offer'));
+      break;
+    case 'available-today':
+      filteredSalons = salons.filter(salon => salon.availableToday);
+      break;
+    default:
+      filteredSalons = salons;
+  }
+  
+  displaySalons(filteredSalons);
+  updateResultsCount(filteredSalons.length);
+  updateMapMarkers(filteredSalons);
+}
+
+// Sort salons based on the selected sort option
+function sortSalons(sortBy) {
+  const currentFilter = document.querySelector('.filter-btn.active').dataset.filter;
+  let filteredSalons = [];
+  
+  // Get the current filtered salons
+  switch (currentFilter) {
+    case 'all':
+      filteredSalons = [...salons];
+      break;
+    case 'nearby':
+      filteredSalons = [...salons].filter(salon => parseFloat(salon.distance) <= 1);
+      break;
+    case 'top-rated':
+      filteredSalons = [...salons].filter(salon => salon.rating >= 4.5);
+      break;
+    case 'offers':
+      filteredSalons = [...salons].filter(salon => salon.badges && salon.badges.includes('Deal') || salon.badges.includes('Offer'));
+      break;
+    case 'available-today':
+      filteredSalons = [...salons].filter(salon => salon.availableToday);
+      break;
+    default:
+      filteredSalons = [...salons];
+  }
+  
+  // Sort the filtered salons
+  switch (sortBy) {
+    case 'relevance':
+      // No sorting needed for relevance
+      break;
+    case 'rating-high':
+      filteredSalons.sort((a, b) => b.rating - a.rating);
+      break;
+    case 'rating-low':
+      filteredSalons.sort((a, b) => a.rating - b.rating);
+      break;
+    case 'price-low':
+      filteredSalons.sort((a, b) => a.price.length - b.price.length);
+      break;
+    case 'price-high':
+      filteredSalons.sort((a, b) => b.price.length - a.price.length);
+      break;
+    case 'distance':
+      filteredSalons.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
+      break;
+    default:
+      // No sorting needed for default
+  }
+  
+  displaySalons(filteredSalons);
+  updateMapMarkers(filteredSalons);
+}
+
+// Reset all filters
+function resetFilters() {
+  // Reset filter buttons
+  filterButtons.forEach(btn => btn.classList.remove('active'));
+  document.querySelector('[data-filter="all"]').classList.add('active');
+  
+  // Reset sort dropdown
+  sortDropdown.value = 'relevance';
+  
+  // Reset advanced filters
+  document.querySelectorAll('.filter-select').forEach(select => {
+    select.selectedIndex = 0;
+  });
+  
+  document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(checkbox => {
+    checkbox.checked = false;
+  });
+  
+  // Reset search bar
+  searchBar.value = '';
+  
+  // Display all salons
+  displaySalons(salons);
+  updateResultsCount(salons.length);
+  updateMapMarkers(salons);
+}
+
+// Apply advanced filters
+function applyAdvancedFilters() {
+  let filteredSalons = [...salons];
+  
+  // Get filter values
+  const serviceType = document.querySelector('.filter-item:nth-child(1) .filter-select').value;
+  const gender = document.querySelector('.filter-item:nth-child(2) .filter-select').value;
+  const priceRange = document.querySelector('.filter-item:nth-child(3) .filter-select').value;
+  const distance = document.querySelector('.filter-item:nth-child(4) .filter-select').value;
+  const availability = document.querySelector('.filter-item:nth-child(5) .filter-select').value;
+  const rating = document.querySelector('.filter-item:nth-child(6) .filter-select').value;
+  
+  const parkingChecked = document.getElementById('parking').checked;
+  const wifiChecked = document.getElementById('wifi').checked;
+  const offersChecked = document.getElementById('offers').checked;
+  const wheelchairChecked = document.getElementById('wheelchair').checked;
+  
+  // Apply service type filter
+  if (serviceType) {
+    filteredSalons = filteredSalons.filter(salon => 
+      salon.services.some(service => service.toLowerCase().includes(serviceType.toLowerCase()))
+    );
+  }
+  
+  // Apply price range filter
+  if (priceRange) {
+    const priceMap = {
+      'budget': '$',
+      'moderate': '$$',
+      'premium': '$$$',
+      'luxury': '$$$$'
+    };
+    filteredSalons = filteredSalons.filter(salon => salon.price === priceMap[priceRange]);
+  }
+  
+  // Apply distance filter
+  if (distance) {
+    const maxDistance = parseFloat(distance);
+    filteredSalons = filteredSalons.filter(salon => parseFloat(salon.distance) <= maxDistance);
+  }
+  
+  // Apply availability filter
+  if (availability === 'today') {
+    filteredSalons = filteredSalons.filter(salon => salon.availableToday);
+  }
+  
+  // Apply rating filter
+  if (rating) {
+    const minRating = parseFloat(rating);
+    filteredSalons = filteredSalons.filter(salon => salon.rating >= minRating);
+  }
+  
+  // Apply feature filters
+  if (parkingChecked || wifiChecked || wheelchairChecked) {
+    filteredSalons = filteredSalons.filter(salon => {
+      if (parkingChecked && !salon.features.includes('parking')) return false;
+      if (wifiChecked && !salon.features.includes('wifi')) return false;
+      if (wheelchairChecked && !salon.features.includes('wheelchair')) return false;
+      return true;
+    });
+  }
+  
+  // Apply offers filter
+  if (offersChecked) {
+    filteredSalons = filteredSalons.filter(salon => 
+      salon.badges && (salon.badges.includes('Deal') || salon.badges.includes('Offer'))
+    );
+  }
+  
+  displaySalons(filteredSalons);
+  updateResultsCount(filteredSalons.length);
+  updateMapMarkers(filteredSalons);
+  
+  // Close advanced filters
+  advancedFilters.classList.remove('active');
+  toggleFiltersBtn.innerHTML = `<i class="fas fa-sliders-h"></i> Advanced Filters`;
+}
+
+// Set active view (grid, list, or map)
+function setActiveView(view) {
+  // Remove active class from all view buttons
+  gridViewBtn.classList.remove('active');
+  listViewBtn.classList.remove('active');
+  mapViewBtn.classList.remove('active');
+  
+  // Hide all views
+  salonGrid.style.display = 'none';
+  salonList.style.display = 'none';
+  mapView.style.display = 'none';
+  
+  // Show selected view and mark button as active
+  switch (view) {
+    case 'grid':
+      gridViewBtn.classList.add('active');
+      salonGrid.style.display = 'block';
+      break;
+    case 'list':
+      listViewBtn.classList.add('active');
+      salonList.style.display = 'block';
+      break;
+    case 'map':
+      mapViewBtn.classList.add('active');
+      mapView.style.display = 'block';
+      // Refresh map
+      if (map) {
+        google.maps.event.trigger(map, 'resize');
+      }
+      break;
+  }
+}
+
+// Book a salon appointment
+function bookSalon(salonId) {
+  const salon = salons.find(s => s.id === salonId);
+  if (salon) {
+    alert(`You are about to book an appointment at ${salon.name}. This would redirect to the booking page.`);
+    // Redirect to booking page
+     window.location.href = `search_detail.html?salon=${salonId& salons}`;
+  }
+}
+
+// Toggle favorite status
+function toggleFavorite(button, salonId) {
+  const isFavorite = button.innerHTML.includes('fas');
+  
+  if (isFavorite) {
+    button.innerHTML = '<i class="far fa-heart"></i>';
+    // Remove from favorites in database/localStorage
+  } else {
+    button.innerHTML = '<i class="fas fa-heart"></i>';
+    // Add to favorites in database/localStorage
+  }
+}
+
+// Show salon details
+function showSalonDetails(salonId) {
+  const salon = salons.find(s => s.id === salonId);
+  if (salon) {
+    // Redirect to the salon detail page
+    window.location.href = `salon_detail.html?id=${salonId}`;
+  }
+}
+
+// Initialize the Google Map
+let map;
+let markers = [];
+
+function initMap() {
+  const mapOptions = {
+    center: { lat: 22.7552, lng: 75.8968 }, // New York City
+    zoom: 12,
+    styles: [
+      {
+        "featureType": "poi",
+        "elementType": "labels",
+        "stylers": [
+          { "visibility": "off" }
+        ]
+      }
+    ]
+  };
+  
+  map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  
+  // Add markers for each salon
+  salons.forEach(salon => {
+    addMarker(salon);
+  });
+}
+
+// Add a marker to the map
+function addMarker(salon) {
+  const marker = new google.maps.Marker({
+    position: { lat: salon.lat, lng: salon.lng },
+    map: map,
+    title: salon.name,
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      fillColor: "#9c27b0",
+      fillOpacity: 1,
+      strokeWeight: 0,
+      scale: 8
+    },
+    animation: google.maps.Animation.DROP
+  });
+  
+  const infoWindow = new google.maps.InfoWindow({
+    content: `
+      <div style="width: 200px; padding: 10px;">
+        <h3 style="margin: 0 0 5px; color: #9c27b0;">${salon.name}</h3>
+        <p style="margin: 0 0 5px; font-size: 12px;">${salon.address}</p>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+          <span style="color: #ff6f00;"><i class="fas fa-star"></i> ${salon.rating}</span>
+          <span style="font-weight: bold; color: #9c27b0;">${salon.price}</span>
+        </div>
+        <button 
+          onclick="bookSalon(${salon.id})" 
+          style="background-color: #9c27b0; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; width: 100%;"
+        >
+          Book Now
+        </button>
+      </div>
+    `
+  });
+  
+  marker.addListener('click', () => {
+    infoWindow.open(map, marker);
+  });
+  
+  markers.push({ marker, salon });
+}
+
+// Update map markers based on filtered salons
+function updateMapMarkers(filteredSalons) {
+  // Clear all markers
+  markers.forEach(m => m.marker.setMap(null));
+  markers = [];
+  
+  // Add markers for filtered salons
+  filteredSalons.forEach(salon => {
+    addMarker(salon);
+  });
+}
+
+// Call this function when the page loads
+window.onload = function() {
+  initPage();
+
+  // Check if there is a search query parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get('search');
+  if (searchQuery && searchBar) {
+    searchBar.value = searchQuery;
+
+    // Trigger input event to filter salons based on search query
+    const event = new Event('input');
+    searchBar.dispatchEvent(event);
+  }
+};
+
+// Fallback function if Google Maps fails to load
+function handleMapError() {
+  console.error('Google Maps failed to load');
+  const mapContainer = document.getElementById('map');
+  if (mapContainer) {
+    mapContainer.innerHTML = `
+      <div style="display: flex; align-items: center; justify-content: center; height: 100%; background-color: #f5f5f5;">
+        <div style="text-align: center;">
+          <i class="fas fa-map-marked-alt" style="font-size: 48px; color: #9c27b0; margin-bottom: 20px;"></i>
+          <p style="color: #757575;">Map could not be loaded. Please check your internet connection.</p>
+        </div>
+      </div>
+    `;
+  }
+}
+
+// Update the Google Maps API script to use the error handler
+window.gm_authFailure = handleMapError;
+</script>

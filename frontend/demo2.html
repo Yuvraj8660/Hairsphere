@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Owner Dashboard</title>
+    <link rel="stylesheet" href="demo2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Glamour Salon</h1>
+            </div>
+            <div class="user-info">
+                <span class="owner-name" id="owner-name">Loading...</span>
+                <div class="avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li class="active"><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
+                <!--li><a href="#"><i class="fas fa-users"></i> Clients</a></li>
+                <li><a href="#"><i class="fas fa-cut"></i> Services</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>-->
+            </ul>
+        </nav>
+
+        <main>
+            <div class="dashboard-header">
+                <h2>Appointment Requests</h2>
+                <div class="filter-container">
+                    <select id="request-filter">
+                        <option value="all">All Requests</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Confirmed">Confirmed</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-value" id="pending-count">0</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="today-count">0</div>
+                    <div class="stat-label">Today</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="week-count">0</div>
+                    <div class="stat-label">This Week</div>
+                </div>
+            </div>
+
+            <div class="requests-container">
+                <div id="requests-list">
+                    <!-- Appointment requests will be loaded here dynamically -->
+                    <div class="loading-indicator">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading appointments...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="no-requests" class="hidden">
+                <div class="empty-state">
+                    <i class="fas fa-calendar-xmark"></i>
+                    <p>No appointment requests to display</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Request Detail Modal -->
+    <div id="request-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Appointment Details</h2>
+            <div class="request-details">
+                <!-- Details will be filled dynamically -->
+            </div>
+            <div class="modal-actions">
+                <button id="accept-request" class="btn accept">Accept</button>
+                <button id="reject-request" class="btn reject">Reject</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="demo2.js"></script>
+</body>
+</html>

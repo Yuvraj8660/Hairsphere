@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Owner Login - Hairsphere</title>
+  <link rel="stylesheet" href="css/login_user.css"/>
+  <script type="module" src="js/login_owner.js" defer></script>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login as Owner</h2>
+    <input type="text" id="ownerPhone" placeholder="Enter Phone Number" />
+    
+    <div id="recaptcha-container"></div>
+    <button onclick="sendOTP('owner')">Send OTP</button>
+    
+    <input type="text" id="ownerOTP" placeholder="Enter OTP" />
+    <button onclick="verifyOTP('owner')">Verify OTP</button>
+    <p><a href="register_owner.html">Sign up if not registered</a></p>
+  </div>
+  <script>
+    window.onload = ( ) => {
+      window.login('owner');
+    };
+  </script>
+  
+</body>
+</html>

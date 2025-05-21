@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salon Details - Hairsphere</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/salon-details.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">
+          <i class="fas fa-cut"></i> Hairsphere
+        </a>
+        <ul class="nav-links">
+          <li><a href="main_user.html">Home</a></li>
+          <li><a href="search_results.html">Nearby Salons</a></li>
+          <li><a href="cust_appointments.html">My Appointments</a></li>
+        </ul>
+        <div class="profile-icon">
+          <i class="fas fa-user"></i>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Back Button -->
+  <div class="container">
+    <a href="search_results.html" class="back-btn">
+      <i class="fas fa-arrow-left"></i> Back to Salons
+    </a>
+  </div>
+
+  <!-- Image Slider -->
+  <section class="image-slider">
+    <div class="slider-container">
+      <div class="slider-wrapper" id="sliderWrapper">
+        <!-- Slider images will be populated by JS -->
+      </div>
+      <div class="slider-pagination" id="sliderPagination">
+        <!-- Pagination dots will be populated by JS -->
+      </div>
+      <button class="slider-nav prev" id="prevSlide">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="slider-nav next" id="nextSlide">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Salon Information -->
+    <section class="salon-info-section">
+      <div class="salon-header">
+        <div>
+          <h1 id="salonName">Salon Name</h1>
+          <p class="salon-address" id="salonAddress">
+            <i class="fas fa-map-marker-alt"></i> 
+            <span>Loading address...</span>
+          </p>
+        </div>
+        <div class="salon-meta">
+          <div class="salon-rating" id="salonRating">
+            <i class="fas fa-star"></i>
+            <span>0.0</span>
+          </div>
+          <div class="salon-price" id="salonPrice">$$</div>
+        </div>
+      </div>
+
+      <div class="salon-actions">
+        <button class="action-btn">
+          <i class="fas fa-phone"></i>
+          <span>Call</span>
+        </button>
+        <button class="action-btn">
+          <i class="fas fa-directions"></i>
+          <span>Directions</span>
+        </button>
+        <button class="action-btn">
+          <i class="far fa-heart"></i>
+          <span>Save</span>
+        </button>
+        <button class="action-btn">
+          <i class="fas fa-share-alt"></i>
+          <span>Share</span>
+        </button>
+      </div>
+
+      <div class="salon-badges" id="salonBadges">
+        <!-- Badges will be populated by JS -->
+      </div>
+    </section>
+
+    <!-- Salon Services -->
+    <section class="salon-section">
+      <div class="section-header">
+        <h2>Services</h2>
+        <button class="view-all-btn">View All</button>
+      </div>
+      <div class="services-container" id="servicesContainer">
+        <!-- Services will be populated by JS -->
+      </div>
+    </section>
+
+    <!-- Working Hours -->
+    <section class="salon-section">
+      <div class="section-header">
+        <h2>Working Hours</h2>
+      </div>
+      <div class="hours-container" id="hoursContainer">
+        <!-- Working hours will be populated by JS -->
+      </div>
+    </section>
+
+    <!-- Book Appointment Section -->
+    <section class="salon-section book-appointment-section">
+      <div class="section-header">
+        <h2>Book Appointment</h2>
+      </div>
+      
+      <form id="appointmentForm">
+        <div class="form-section">
+          <h3>Your Details</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="customerName">Name</label>
+              <input type="text" id="customerName" name="customerName" pattern="[A-Za-z]+" title="Only Letters Allowed" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+              <label for="customerPhone">Phone Number</label>
+              <input type="number" id="customerPhone" name="customerPhone" placeholder="Enter your phone number" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Gender</label>
+            <div class="radio-group">
+              <label class="radio-container">
+                <input type="radio" name="gender" value="Male" checked>
+                <span class="radio-label">Male</span>
+              </label>
+              <label class="radio-container">
+                <input type="radio" name="gender" value="Female">
+                <span class="radio-label">Female</span>
+              </label>
+              <label class="radio-container">
+                <input type="radio" name="gender" value="Other">
+                <span class="radio-label">Other</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Select Date & Time</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="appointmentDate">Date</label>
+              <input type="date" id="appointmentDate" name="appointmentDate" required>
+            </div>
+          </div>
+
+          <div class="time-slots-container">
+            <h4>Available Time Slots</h4>
+            <div class="time-slots" id="timeSlots">
+              <!-- Time slots will be populated by JS -->
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Select Services</h3>
+          <div class="service-selection" id="serviceSelection">
+            <!-- Service checkboxes will be populated by JS -->
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="salon-section">
+      <div class="section-header">
+        <h2>Ratings & Reviews</h2>
+        <button class="view-all-btn">View All (47)</button>
+      </div>
+      
+      <div class="ratings-summary">
+        <div class="rating-score">
+          <div class="big-rating" id="averageRating">4.8</div>
+          <div class="rating-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <div class="rating-count">Based on 47 reviews</div>
+        </div>
+        <div class="rating-bars">
+          <div class="rating-bar-item">
+            <div class="rating-label">5</div>
+            <div class="rating-bar">
+              <div class="rating-fill" style="width: 80%"></div>
+            </div>
+            <div class="rating-percent">80%</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rating-label">4</div>
+            <div class="rating-bar">
+              <div class="rating-fill" style="width: 15%"></div>
+            </div>
+            <div class="rating-percent">15%</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rating-label">3</div>
+            <div class="rating-bar">
+              <div class="rating-fill" style="width: 3%"></div>
+            </div>
+            <div class="rating-percent">3%</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rating-label">2</div>
+            <div class="rating-bar">
+              <div class="rating-fill" style="width: 1%"></div>
+            </div>
+            <div class="rating-percent">1%</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rating-label">1</div>
+            <div class="rating-bar">
+              <div class="rating-fill" style="width: 1%"></div>
+            </div>
+            <div class="rating-percent">1%</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="reviews-container" id="reviewsContainer">
+        <!-- Reviews will be populated by JS -->
+      </div>
+      
+      <button class="secondary-btn">Write a Review</button>
+    </section>
+
+    <!-- Similar Salons -->
+    <section class="salon-section">
+      <div class="section-header">
+        <h2>You May Also Like</h2>
+      </div>
+      <div class="similar-salons" id="similarSalons">
+        <!-- Similar salons will be populated by JS -->
+      </div>
+    </section>
+  </div>
+
+  <!-- Fixed Bottom Bar -->
+  <div class="bottom-bar" id="bottomBar">
+    <div class="bottom-bar-content">
+      <div class="price-summary">
+        <div class="total-label">Total</div>
+        <div class="total-price" id="totalPrice">$0.00</div>
+      </div>
+      <button class="book-now-btn" id="bookNowBtn" disabled>Book Now</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Hairsphere</h3>
+          <p>Connecting you with the best salon services near you. Book appointments easily and discover great deals.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="main_user.html">Home</a></li>
+            <li><a href="search_results.html">Nearby Salons</a></li>
+            <li><a href="cust_appointments.html">My Appointments</a></li>
+            <li><a href="#">Profile</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Haircuts & Styling</a></li>
+            <li><a href="#">Hair Coloring</a></li>
+            <li><a href="#">Nail Services</a></li>
+            <li><a href="#">Spa & Wellness</a></li>
+            <li><a href="#">Makeup</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:info@hairsphere.com">info@hairsphere.com</a></li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+123456789">+91 91090 75767</a></li>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Salon Street, Beauty City</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 Hairsphere. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/demo.js"></script>
+</body>
+</html>

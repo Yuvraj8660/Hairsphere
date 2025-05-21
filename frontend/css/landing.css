@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url('https://images.newrepublic.com/9bba0e56c589fb3e06191969202abb446327a86a.jpeg?auto=format&fit=crop&crop=faces&ar=3%3A2&ixlib=react-9.10.0&q=65&w=1400&dpr=2');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+}
+
+.landing-container {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 60px 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  max-width: 400px;
+  width: 90%;
+  transition: transform 0.3s ease;
+}
+
+.landing-container:hover {
+  transform: translateY(-10px);
+}
+
+h1 {
+  margin-bottom: 15px;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+p {
+  margin-bottom: 40px;
+  font-size: 1.2rem;
+  color: #f0e6ff;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn-group button {
+  margin: 10px;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 50px;
+  background-color: #7c6481;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(156, 39, 176, 0.6);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-group button:hover {
+  background-color: #7f6185;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(156, 39, 176, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .landing-container {
+    padding: 40px 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .btn-group button {
+    width: 100%;
+    margin: 10px 0;
+  }
+}

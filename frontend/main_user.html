@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hairsphere Salon - Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main_user.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <i class="fas fa-cut"></i> Hairsphere
+        </div>
+        <ul class="nav-links">
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="search_results.html">Nearby Salons</a></li>
+          <li><a href="cust_appointments.html">My Appointments</a></li>
+        </ul>
+        <div class="profile-icon">
+          <i class="fas fa-user"></i>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero animate">
+      <h1>Find Your Perfect Style</h1>
+      <p>Discover the best salons near you and book appointments with top stylists</p>
+      <a href="#book-now" class="btn">Book Now</a>
+    </section>
+
+    <!-- Book Now Section -->
+    <section id="book-now" class="book-now section animate delay-1">
+      <div class="section-heading">
+        <h2>Book Now</h2>
+      </div>
+      <p class="section-subheading">Find and book appointments at top salons near you</p>
+      
+      <div class="map-container">
+        <div id="map" style="width: 100%; height: 100%;"></div>
+      </div>
+      
+      <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search for salons or services...">
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+      </div>
+      
+      <div class="salon-cards">
+        <div class="salon-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN1pPWIBz1S3ri4c56hfONq95YwRNt3fiu6w&s" alt="Salon" class="salon-img">
+          <div class="salon-info">
+            <h3> The Hair Studio</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 35 Sector B,indore, Madhya Pradesh</p>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span>4.5 (120)</span>
+            </div>
+            <!--button class="btn">Book Appointment</button-->
+            <a href="salon_detail.html" button class="btn">Book Appointment</a></button>
+          </div>
+        </div>
+        
+        <div class="salon-card">
+          <img src="https://m.media-amazon.com/images/I/81TvpIOUMTL._AC_UF894,1000_QL80_.jpg" alt="Salon" class="salon-img">
+          <div class="salon-info">
+            <h3>Glamour Hair & Beauty</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 50 Sector B,indore, Madhya Pradesh</p>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <span>4.0 (85)</span>
+            </div>
+          <!--button class="btn">Book Appointment</button-->
+          <a href="salon_detail.html" button class="btn">Book Appointment</a></button>
+          </div>
+        </div>
+        
+        <div class="salon-card">
+          <img src="https://t4.ftcdn.net/jpg/01/81/61/29/360_F_181612908_uiOH8a4qWiNGuGS2Pg5dgwUIKJZ0C02w.jpg" alt="Salon" class="salon-img">
+          <div class="salon-info">
+            <h3>Style & Shine</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 75 Sector B,indore, Madhya Pradesh</p>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>5.0 (210)</span>
+            </div>
+            <!--button class="btn">Book Appointment</button-->
+            <a href="salon_detail.html" button class="btn">Book Appointment</a></button>
+          </div>
+        </div>
+        
+        <div class="salon-card">
+          <img src="https://cdn1.treatwell.net/images/view/v2.i2172414.w1080.h720.x257A642F/" alt="Salon" class="salon-img">
+          <div class="salon-info">
+            <h3>Chic & Shear</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 100 Sector B,indore, Madhya Pradesh</p>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <i class="far fa-star"></i>
+              <span>3.5 (45)</span>
+            </div>
+            <!--button class="btn">Book Appointment</button-->
+            <a href="salon_detail.html" button class="btn">Book Appointment</a></button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="view-more">
+        <a href="search_results.html" class="btn btn-outlined">View More Salons</a>
+      </div>
+    </section>
+
+    <!-- Advance Booking Deals -->
+    <section class="section animate delay-2">
+      <div class="section-heading">
+        <h2>Advance Booking Deals</h2>
+      </div>
+      <p class="section-subheading">Save big when you book your appointments in advance</p>
+      
+      <div class="cards-container">
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN1pPWIBz1S3ri4c56hfONq95YwRNt3fiu6w&s" alt="Deal" class="card-img">
+          <div class="card-badge discount-badge">25% OFF</div>
+          <div class="card-content">
+            <h3>Weekend Special</h3>
+            <p>Book a full hair treatment 5 days in advance and get 25% off</p>
+            <div class="price">45Rs <span>60Rs</span></div>
+            <!--button class="btn">Book Now</button-->
+            <a href="salon_detail.html" button class="btn">Book Now</a></button>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://img.freepik.com/free-photo/woman-s-feet-bowl-with-water-petal_329181-18808.jpg?semt=ais_hybrid&w=740" alt="Deal" class="card-img">
+          <div class="card-badge discount-badge">15% OFF</div>
+          <div class="card-content">
+            <h3>Manicure + Pedicure</h3>
+            <p>Book 3 days in advance and save 15% on our premium package</p>
+            <div class="price">55Rs <span>65Rs</span></div>
+            <!--button class="btn">Book Now</button-->
+            <a href="salon_detail.html" button class="btn">Book Now</a></button>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="https://t4.ftcdn.net/jpg/01/81/61/29/360_F_181612908_uiOH8a4qWiNGuGS2Pg5dgwUIKJZ0C02w.jpg" alt="Deal" class="card-img">
+          <div class="card-badge discount-badge">30% OFF</div>
+          <div class="card-content">
+            <h3>Family Package</h3>
+            <p>Book haircuts for 3+ family members a week ahead for 30% off</p>
+            <div class="price">99Rs <span>140Rs</span></div>
+            <!--button class="btn">Book Now</button-->
+            <a href="salon_detail.html" button class="btn">Book Now</a></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Explore by Category -->
+    <section class="section animate delay-3">
+      <div class="section-heading">
+        <h2>Explore by Category</h2>
+      </div>
+      <p class="section-subheading">Find the perfect service for your needs</p>
+      
+      <div class="cards-container">
+        <div class="card category-card">
+          <div class="category-icon">
+            <i class="fas fa-cut"></i>
+          </div>
+          <div class="card-content">
+            <h3>Haircuts</h3>
+            <p>Professional haircuts for all styles and preferences</p>
+            <!--<button class="btn btn-outlined">Explore</button-->
+              <a href="search_results.html" button class="btn">Explore </a></button>
+          </div>
+        </div>
+        
+        <div class="card category-card">
+          <div class="category-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <div class="card-content">
+            <h3>Hair Coloring</h3>
+            <p>Full color, highlights, balayage, and more</p>
+            <!--<button class="btn btn-outlined">Explore</button-->
+            <a href="search_results.html" button class="btn">Explore </a></button>
+          </div>
+        </div>
+        
+        <div class="card category-card">
+          <div class="category-icon">
+            <i class="fas fa-spa"></i>
+          </div>
+          <div class="card-content">
+            <h3>Spa & Wellness</h3>
+            <p>Facials, massages, and relaxation treatments</p>
+            <!--<button class="btn btn-outlined">Explore</button-->
+            <a href="search_results.html" button class="btn">Explore </a></button>
+          </div>
+        </div>
+        
+        <div class="card category-card">
+          <div class="category-icon">
+            <i class="fas fa-hand-sparkles"></i>
+          </div>
+          <div class="card-content">
+            <h3>Nail Services</h3>
+            <p>Manicures, pedicures, and nail art</p>
+            <!--<button class="btn btn-outlined">Explore</button-->
+              <a href="search_results.html" button class="btn">Explore </a></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Trending Offers -->
+    <section class="section animate delay-4">
+      <div class="section-heading">
+        <h2>Top Trending Offers</h2>
+      </div>
+      <p class="section-subheading">Our most popular limited-time deals and promotions</p>
+      
+      <div class="cards-container">
+        <div class="card">
+          <img src="/api/placeholder/350/180" alt="Offer" class="card-img">
+          <div class="card-badge">TRENDING</div>
+          <div class="card-content">
+            <h3>Summer Hair Revival</h3>
+            <p>Deep conditioning treatment with haircut and styling</p>
+            <div class="price">175Rs <span>200Rs</span></div>
+            <!--button class="btn">Book Now</button-->
+            <a href="search_results.html" button class="btn">Book Now </a></button>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="/api/placeholder/350/180" alt="Offer" class="card-img">
+          <div class="card-badge">LIMITED</div>
+          <div class="card-content">
+            <h3>Complete Makeover</h3>
+            <p>Hair, makeup, and nail services for special occasions</p>
+            <div class="price">200Rs <span>300Rs</span></div>
+            <!--button class="btn">Book Now</button-->
+            <a href="search_results.html" button class="btn">Book Now </a></button>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="/api/placeholder/350/180" alt="Offer" class="card-img">
+          <div class="card-badge">HOT DEAL</div>
+          <div class="card-content">
+            <h3>Men's Grooming Package</h3>
+            <p>Haircut, beard trim, and facial treatment</p>
+            <div class="price">500Rs <span>750Rs</span></div>
+            <!--button class="btn">Book Now</button-->
+            <a href="search_results.html" button class="btn">Book Now </a></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Hairsphere</h3>
+          <p>Connecting you with the best salon services near you. Book appointments easily and discover great deals.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Nearby Salons</a></li>
+            <li><a href="#">My Appointments</a></li>
+            <li><a href="#">Profile</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Haircuts & Styling</a></li>
+            <li><a href="#">Hair Coloring</a></li>
+            <li><a href="#">Nail Services</a></li>
+            <li><a href="#">Spa & Wellness</a></li>
+            <li><a href="#">Makeup</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:info@hairsphere.com">info@hairsphere.com</a></li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+919109075767">+91 91090 75767</a></li>
+            <li><i class="fas fa-map-marker-alt"></i> 123 Salon Street, Beauty City</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 Hairsphere. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY5liEFd3PDux3qxgF7jNiF-pP4vBFuKA&callback=initMap&libraries=places" async defer></script>
+  <script src="js/main_user.js"></script> 
+  <script>
+    // Redirect search from main_user.html to search_results.html with query parameter
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchBar = document.getElementById('searchBar');
+      const searchBtn = document.querySelector('.search-btn');
+      function redirectToSearchResults() {
+        const query = searchBar.value.trim();
+        if (query) {
+          window.location.href = `search_results.html?search=${encodeURIComponent(query)}`;
+        }
+      }
+      if (searchBtn) {
+        searchBtn.addEventListener('click', redirectToSearchResults);
+      }
+      if (searchBar) {
+        searchBar.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            redirectToSearchResults();
+          }
+        });
+      }
+    });
+  </script>
